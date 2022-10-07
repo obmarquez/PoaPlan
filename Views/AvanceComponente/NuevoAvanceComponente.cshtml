@@ -1,0 +1,382 @@
+﻿@model avanceComponente
+
+@{
+    ViewData["Title"] = "NuevoAvanceComponente";
+}
+
+<div class="row">
+
+    <div class="col-lg-12">
+
+        <div class="ibox float-e-margins">
+
+            <form asp-controller="AvanceComponente" asp-action="NuevoAvanceComponente" role="form" class="form-horizontal" method="post">
+
+                <div class="ibox-title">
+
+                    <h5>Organo: @ViewBag.organo_componente.organo <small>Componente: @ViewBag.organo_componente.componente </small></h5>
+
+                </div>
+
+                <div class="ibox-content">
+
+                    <div class="row">
+
+                        <div class="col-sm-6 b-r">
+                            <h3 class="m-t-none m-b">Programado</h3>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Enero</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.enero_mod, new {@class="form-control", @type="number", @placeholder="Cantidad"})
+                                    <span asp-validation-for="enero_mod" class="badge badge-danger"></span>
+                                </div>
+
+                                <label class="col-sm-2 control-label">Febrero</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.febrero_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad" })
+                                    <span asp-validation-for="febrero_mod" class="badge badge-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Marzo</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.marzo_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad" })
+                                    <span asp-validation-for="marzo_mod" class="badge badge-danger"></span>
+                                </div>
+                                <label class="col-sm-2 control-label">Abril</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.abril_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad" })
+                                    <span asp-validation-for="abril_mod" class="badge badge-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Mayo</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.mayo_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad" })
+                                    <span asp-validation-for="mayo_mod" class="badge badge-danger"></span>
+                                </div>
+                                <label class="col-sm-2 control-label">Junio</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.junio_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad" })
+                                    <span asp-validation-for="junio_mod" class="badge badge-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Julio</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.julio_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad" })
+                                    <span asp-validation-for="julio_mod" class="badge badge-danger"></span>
+                                </div>
+                                <label class="col-sm-2 control-label">Agosto</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.agosto_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad" })
+                                    <span asp-validation-for="agosto_mod" class="badge badge-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Septiembre</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.septiembre_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad" })
+                                    <span asp-validation-for="septiembre_mod" class="badge badge-danger"></span>
+                                </div>
+                                <label class="col-sm-2 control-label">Octubre</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.octubre_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad" })
+                                    <span asp-validation-for="octubre_mod" class="badge badge-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Noviembre</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.noviembre_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad" })
+                                    <span asp-validation-for="noviembre_mod" class="badge badge-danger"></span>
+                                </div>
+                                <label class="col-sm-2 control-label">Diciembre</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.diciembre_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad" })
+                                    <span asp-validation-for="diciembre_mod" class="badge badge-danger"></span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-sm-6">
+                            <h3 class="m-t-none m-b">Avance</h3>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Enero</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="enero_ava" name="enero_ava" value="0">
+                                </div>
+
+                                <label class="col-sm-2 control-label">Febrero</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="febrero_ava" name="febrero_ava" value="0">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Marzo</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="marzo_ava" name="marzo_ava" value="0">
+                                </div>
+                                <label class="col-sm-2 control-label">Abril</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="abril_ava" name="abril_ava" value="0">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Mayo</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="mayo_ava" name="mayo_ava" value="0">
+                                </div>
+                                <label class="col-sm-2 control-label">Junio</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="junio_ava" name="junio_ava" value="0">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Julio</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="julio_ava" name="julio_ava" value="0">
+                                </div>
+                                <label class="col-sm-2 control-label">Agosto</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="agosto_ava" name="agosto_ava" value="0">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Septiembre</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="septiembre_ava" name="septiembre_ava" value="0">
+                                </div>
+                                <label class="col-sm-2 control-label">Octubre</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="octubre_ava" name="octubre_ava" value="0">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Noviembre</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="noviembre_ava" name="noviembre_ava" value="0">
+                                </div>
+                                <label class="col-sm-2 control-label">Diciembre</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="diciembre_ava" name="diciembre_ava" value="0">
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="ibox-title">
+
+                    <h5>Beneficiarios  <small>Mensual.</small></h5>
+
+                </div>
+
+                <div class="ibox-content">
+
+                    <div class="row">
+
+                        <div class="col-sm-6 b-r">
+
+                            <h3 class="m-t-none m-b">Hombre</h3>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Enero</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="hene" name="hene" value="0">
+                                </div>
+
+                                <label class="col-sm-2 control-label">Febrero</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="hfeb" name="hfeb" value="0">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Marzo</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="hmar" name="hmar" value="0">
+                                </div>
+
+                                <label class="col-sm-2 control-label">Abril</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="habr" name="habr" value="0">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Mayo</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="hmay" name="hmay" value="0">
+                                </div>
+
+                                <label class="col-sm-2 control-label">Junio</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="hjun" name="hjun" value="0">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Julio</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="hjul" name="hjul" value="0">
+                                </div>
+
+                                <label class="col-sm-2 control-label">Agosto</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="hago" name="hago" value="0">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Septiembre</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="hsep" name="hsep" value="0">
+                                </div>
+
+                                <label class="col-sm-2 control-label">Octubre</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="hoct" name="hoct" value="0">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Noviembre</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="hnov" name="hnov" value="0">
+                                </div>
+
+                                <label class="col-sm-2 control-label">Diciembre</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="hdic" name="hdic" value="0">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-sm-6">
+
+                            <h3 class="m-t-none m-b">Mujer</h3>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Enero</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="mene" name="mene" value="0">
+                                </div>
+
+                                <label class="col-sm-2 control-label">Febrero</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="mfeb" name="mfeb" value="0">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Marzo</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="mmar" name="mmar" value="0">
+                                </div>
+
+                                <label class="col-sm-2 control-label">Abril</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="mabr" name="mabr" value="0">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Mayo</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="mmay" name="mmay" value="0">
+                                </div>
+
+                                <label class="col-sm-2 control-label">Junio</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="mjun" name="mjun" value="0">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Julio</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="mjul" name="mjul" value="0">
+                                </div>
+
+                                <label class="col-sm-2 control-label">Agosto</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="mago" name="mago" value="0">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Septiembre</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="msep" name="msep" value="0">
+                                </div>
+
+                                <label class="col-sm-2 control-label">Octubre</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="moct" name="moct" value="0">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Noviembre</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="mnov" name="mnov" value="0">
+                                </div>
+
+                                <label class="col-sm-2 control-label">Diciembre</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="mdic" name="mdic" value="0">
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="ibox-footer">
+                    <input hidden  id="idComponente" name="idComponente" value="@ViewBag.elIdComp_a"/>
+                    <button class="btn btn-outline btn-success dim" type="submit"><i class="fa fa-floppy-o"></i></button>
+                    <button class="btn btn-outline btn-danger dim" type="button" onclick="salir();"><i class="fa fa-sign-out"></i></button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section scripts
+{
+
+
+    <script language="javascript">
+
+        function salir() {
+            location.href = '@Url.Action("Index", "AvanceComponente")';
+        }
+
+    </script>
+
+}

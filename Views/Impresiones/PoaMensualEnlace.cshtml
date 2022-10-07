@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "PoaMensualEnlace";
+}
+
+@using (Html.BeginForm("PrtPoaMes", "Impresiones", new { @class = "form-horizontal" }))
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Seleccione el mes que desa imprimir
+        </div>
+        <div class="panel-body">
+
+            <input type="hidden" id="elArea" name="elArea" value="@ViewBag.elAreaEnlace" />
+
+            <div class="row form-group">
+                <label class="col-sm-1 control-label">Mes</label>
+                <div class="col-sm-2">
+                    @Html.DropDownList("elMes", (IEnumerable<SelectListItem>)ViewBag.losMeses, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="row form-group">
+
+                <div class="col-md-1">
+                    <button type="submit" class="btn btn-block btn-outline btn-success btn-xs">Imprimir</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}

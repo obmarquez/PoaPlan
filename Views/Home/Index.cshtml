@@ -1,0 +1,226 @@
+﻿@using PoaPlan.Helper
+
+@{
+    ViewData["Title"] = "UP";
+    string porcentaje = (Convert.ToDouble(@ViewBag.datosTotalIndicadorEstrateico.totAva) / Convert.ToDouble(@ViewBag.datosTotalIndicadorEstrateico.totPro) * 100).ToString("F2") + " %";
+}
+
+@if (@SessionHelper.GetNameRol(User) == "Administrador" || @SessionHelper.GetNameRol(User) == "Director")
+{
+<div class="row">
+    <div class="col-lg-4">
+        <div class="widget lazur-bg no-padding">
+            <div class="p-m text-center">
+                <h1 class="m-xs">@ViewBag.datosTotalIndicadorEstrateico.totPro</h1>
+
+                <h3 class="font-bold no-margins">
+                    Programado IE
+                </h3>
+
+                <i class="fa fa-cog fa-4x"></i>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="widget yellow-bg no-padding">
+            <div class="p-m text-center">
+                <h1 class="m-xs">@ViewBag.datosTotalIndicadorEstrateico.totAva</h1>
+
+                <h3 class="font-bold no-margins">
+                    Avance IE
+                </h3>
+
+                <i class="fa fa-cogs fa-4x"></i>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="widget red-bg no-padding">
+            <div class="p-m text-center">
+                <h1 class="m-xs"> @porcentaje</h1>
+
+                <h3 class="font-bold no-margins">
+                    Porcentaje IE
+                </h3>
+
+                <i class="fa fa-flash fa-4x"></i>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Grafica Evolución Mensual del Indicador Estratégico</h5>
+                </div>
+                <div class="ibox-content">
+                    <figure class="highcharts-figure">
+                        <div id="container_ind_est"></div>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@if (@SessionHelper.GetNameRol(User) == "Enlace")
+{
+    foreach (var item in ViewBag.datosEnlaceConcentrado)
+    {
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="widget navy-bg no-padding">
+                    <div class="p-m">
+                        <h1 class="m-xs">@item.componente</h1>
+                    </div>
+                </div>
+                <br />
+            </div>
+
+            <div class="col-lg-3">
+                <div class="widget lazur-bg no-padding">
+                    <div class="p-m text-center">
+                        <h1 class="m-xs">@item.totPro</h1>
+
+                        <h3 class="font-bold no-margins">
+                            Programado
+                        </h3>
+
+                        <i class="fa fa-cog fa-4x"></i>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <div class="widget yellow-bg no-padding">
+                    <div class="p-m text-center">
+                        <h1 class="m-xs">@item.totAva</h1>
+
+                        <h3 class="font-bold no-margins">
+                            Avance
+                        </h3>
+
+                        <i class="fa fa-cogs fa-4x"></i>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-6">
+                <div class="widget style1 lazur-bg">
+                    <div class="row vertical-align">
+                        <div class="col-xs-3">
+                            <i class="fa fa-male fa-3x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <h2 class="font-bold">@item.totHom</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="widget style1 yellow-bg">
+                    <div class="row vertical-align">
+                        <div class="col-xs-3">
+                            <i class="fa fa-female fa-3x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <h2 class="font-bold">@item.totMuj</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hr-line-dashed"></div>
+    }
+
+}
+
+@section scripts
+{
+    @*CSS*@
+
+
+    @*JS*@
+    <script src="~/Content/js/plugins/chartJs/Chart.min.js"></script>
+    <script src="~/scriptsHighcharts/highcharts.min.js"></script>
+    <script src="~/scriptsHighcharts/drilldown.min.js"></script>
+    <script src="~/scriptsHighcharts/exporting.min.js"></script>
+    <script src="~/scriptsHighcharts/export-data.min.js"></script>
+    <script src="~/scriptsHighcharts/data.min.js"></script>
+    <script src="~/scriptsHighcharts/accessibility.min.js"></script>
+
+    <script type="text/javascript">
+        //----------------------------------------------------- Grafica evolucion indicador estrategico - Lupona
+        var myArrayMes = [];
+        var myArrayPro = [];
+        var myArrayAva = [];
+        @foreach(var item in ViewBag.ind_est_evolucion)
+            {
+                @:myArrayMes.push("@item.mes");
+                @:myArrayPro.push(@item.pro);
+                @:myArrayAva.push(@item.ava);
+            }
+
+        Highcharts.chart('container_ind_est', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Evolución Indicador Estratégico'
+            },
+            subtitle: {
+                text: 'Mensual'
+            },
+            xAxis: {
+                categories: myArrayMes,
+
+                crosshair: true
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Basada captura de Planeación'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:9px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y} </b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: [{
+                name: 'Programado',
+                data: myArrayPro
+
+            }, {
+                name: 'Avance',
+                data: myArrayAva
+
+            }]
+        });
+    </script>
+
+}

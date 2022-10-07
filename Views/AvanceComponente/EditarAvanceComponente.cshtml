@@ -1,0 +1,476 @@
+﻿@model avanceComponente
+
+@{
+    ViewData["Title"] = "EditarAvanceComponente";
+}
+
+<div class="row">
+
+    <div class="col-lg-12">
+
+        <div class="ibox float-e-margins">
+
+            <form asp-controller="AvanceComponente" asp-action="EditarAvanceComponente" role="form" class="form-horizontal" method="post">
+
+                <div class="ibox-title">
+
+                    <h5>Organo: @ViewBag.organo_componente.organo <small>Componente: @ViewBag.organo_componente.componente - Captura de Avance</small></h5>
+
+                </div>
+
+                <div class="ibox-content">
+
+                    <div class="row">
+
+                        <div class="col-sm-6 b-r">
+                            <h3 class="m-t-none m-b">Programado</h3>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Enero</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.enero_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad", @readonly = "readonly" })
+                                    <span asp-validation-for="enero_mod" class="badge badge-danger"></span>
+                                </div>
+
+                                <label class="col-sm-2 control-label">Febrero</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.febrero_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad", @readonly = "readonly" })
+                                    <span asp-validation-for="febrero_mod" class="badge badge-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Marzo</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.marzo_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad", @readonly = "readonly" })
+                                    <span asp-validation-for="marzo_mod" class="badge badge-danger"></span>
+                                </div>
+                                <label class="col-sm-2 control-label">Abril</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.abril_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad", @readonly = "readonly" })
+                                    <span asp-validation-for="abril_mod" class="badge badge-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Mayo</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.mayo_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad", @readonly = "readonly" })
+                                    <span asp-validation-for="mayo_mod" class="badge badge-danger"></span>
+                                </div>
+                                <label class="col-sm-2 control-label">Junio</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.junio_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad", @readonly = "readonly" })
+                                    <span asp-validation-for="junio_mod" class="badge badge-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Julio</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.julio_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad", @readonly = "readonly" })
+                                    <span asp-validation-for="julio_mod" class="badge badge-danger"></span>
+                                </div>
+                                <label class="col-sm-2 control-label">Agosto</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.agosto_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad", @readonly = "readonly" })
+                                    <span asp-validation-for="agosto_mod" class="badge badge-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Septiembre</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.septiembre_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad", @readonly = "readonly" })
+                                    <span asp-validation-for="septiembre_mod" class="badge badge-danger"></span>
+                                </div>
+                                <label class="col-sm-2 control-label">Octubre</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.octubre_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad", @readonly = "readonly" })
+                                    <span asp-validation-for="octubre_mod" class="badge badge-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Noviembre</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.noviembre_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad", @readonly = "readonly" })
+                                    <span asp-validation-for="noviembre_mod" class="badge badge-danger"></span>
+                                </div>
+                                <label class="col-sm-2 control-label">Diciembre</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.diciembre_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad", @readonly = "readonly" })
+                                    <span asp-validation-for="diciembre_mod" class="badge badge-danger"></span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-sm-6">
+                            <h3 class="m-t-none m-b">Avance</h3>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Enero</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.enero_ava, new { @class = "form-control", @type = "number" })
+                                </div>
+
+                                <label class="col-sm-2 control-label">Febrero</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.febrero_ava, new { @class = "form-control", @type = "number" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Marzo</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.marzo_ava, new { @class = "form-control", @type = "number" })
+                                </div>
+                                <label class="col-sm-2 control-label">Abril</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.abril_ava, new { @class = "form-control", @type = "number" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Mayo</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.mayo_ava, new { @class = "form-control", @type = "number" })
+                                </div>
+                                <label class="col-sm-2 control-label">Junio</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.junio_ava, new { @class = "form-control", @type = "number" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Julio</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.julio_ava, new { @class = "form-control", @type = "number" })
+                                </div>
+                                <label class="col-sm-2 control-label">Agosto</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.agosto_ava, new { @class = "form-control", @type = "number" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Septiembre</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.septiembre_ava, new { @class = "form-control", @type = "number" })
+                                </div>
+                                <label class="col-sm-2 control-label">Octubre</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.octubre_ava, new { @class = "form-control", @type = "number" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Noviembre</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.noviembre_ava, new { @class = "form-control", @type = "number" })
+                                </div>
+                                <label class="col-sm-2 control-label">Diciembre</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.diciembre_ava, new { @class = "form-control", @type = "number" })
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="row">
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Total Programado</label>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control" id="totalPro" name="totalPro" readonly="readonly">
+                            </div>
+
+                            <label class="col-sm-2 control-label">Total Avance</label>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control" id="totalAva" name="totalAva" readonly="readonly">
+                            </div>
+
+                            <label class="col-sm-2 control-label">% Acumulado</label>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control" id="totalPor" name="totalPor" readonly="readonly">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="ibox-title">
+
+                    <h5>Edición de Beneficiarios  <small>Mensual.</small></h5>
+
+                </div>
+
+                <div class="ibox-content">
+
+                    <div class="row">
+
+                        <div class="col-sm-6 b-r">
+
+                            <h3 class="m-t-none m-b">Hombre</h3>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Enero</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.hene, new { @class = "form-control", @type = "number" })
+                                </div>
+
+                                <label class="col-sm-2 control-label">Febrero</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.hfeb, new { @class = "form-control", @type = "number" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Marzo</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.hmar, new { @class = "form-control", @type = "number" })
+                                </div>
+
+                                <label class="col-sm-2 control-label">Abril</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.habr, new { @class = "form-control", @type = "number" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Mayo</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.hmay, new { @class = "form-control", @type = "number" })
+                                </div>
+
+                                <label class="col-sm-2 control-label">Junio</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.hjun, new { @class = "form-control", @type = "number" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Julio</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.hjul, new { @class = "form-control", @type = "number" })
+                                </div>
+
+                                <label class="col-sm-2 control-label">Agosto</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.hago, new { @class = "form-control", @type = "number" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Septiembre</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.hsep, new { @class = "form-control", @type = "number" })
+                                </div>
+
+                                <label class="col-sm-2 control-label">Octubre</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.hoct, new { @class = "form-control", @type = "number" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Noviembre</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.hnov, new { @class = "form-control", @type = "number" })
+                                </div>
+
+                                <label class="col-sm-2 control-label">Diciembre</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.hdic, new { @class = "form-control", @type = "number" })
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-sm-6">
+
+                            <h3 class="m-t-none m-b">Mujer</h3>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Enero</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.mene, new { @class = "form-control", @type = "number" })
+                                </div>
+
+                                <label class="col-sm-2 control-label">Febrero</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.mfeb, new { @class = "form-control", @type = "number" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Marzo</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.mmar, new { @class = "form-control", @type = "number" })
+                                </div>
+
+                                <label class="col-sm-2 control-label">Abril</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.mabr, new { @class = "form-control", @type = "number" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Mayo</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.mmay, new { @class = "form-control", @type = "number" })
+                                </div>
+
+                                <label class="col-sm-2 control-label">Junio</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.mjun, new { @class = "form-control", @type = "number" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Julio</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.mjul, new { @class = "form-control", @type = "number" })
+                                </div>
+
+                                <label class="col-sm-2 control-label">Agosto</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.mago, new { @class = "form-control", @type = "number" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Septiembre</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.msep, new { @class = "form-control", @type = "number" })
+                                </div>
+
+                                <label class="col-sm-2 control-label">Octubre</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.moct, new { @class = "form-control", @type = "number" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Noviembre</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.mnov, new { @class = "form-control", @type = "number" })
+                                </div>
+
+                                <label class="col-sm-2 control-label">Diciembre</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.mdic, new { @class = "form-control", @type = "number" })
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="row">
+
+                        <div class="form-group">
+
+                            <label class="col-sm-2 control-label">Total Beneficiario Hombre</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="totalHom" name="totalHom" readonly="readonly">
+                            </div>
+
+                            <label class="col-sm-2 control-label">Total Beneficiario Mujer</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="totalMuj" name="totalMuj" readonly="readonly">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                <div class="ibox-footer">
+                    @Html.HiddenFor(model => model.id)
+                    <button class="btn btn-outline btn-success dim" type="submit"><i class="fa fa-floppy-o"></i></button>
+                    <button class="btn btn-outline btn-danger dim" type="button" onclick="salir();"><i class="fa fa-sign-out"></i></button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section scripts
+{
+
+
+    <script language="javascript">
+
+        $(document).ready(function () {
+
+            sumaProgramado();
+
+            sumaAvance();
+
+            porcentaje();
+
+            totalHombre();
+
+            totalMujer();
+
+        });
+
+
+        function salir() {
+            location.href = '@Url.Action("Index", "AvanceComponente")';
+        }
+
+        function sumaProgramado() {
+
+            var totalProgramado = parseInt(@Model.enero_mod) + parseInt(@Model.febrero_mod) + parseInt(@Model.marzo_mod) + parseInt(@Model.abril_mod) + parseInt(@Model.mayo_mod) + parseInt(@Model.junio_mod) + parseInt(@Model.julio_mod) + parseInt(@Model.agosto_mod) + parseInt(@Model.septiembre_mod) + parseInt(@Model.octubre_mod) + parseInt(@Model.noviembre_mod) + parseInt(@Model.diciembre_mod);
+
+            /*document.getElementById("totalPro").value = totalProgramado.toFixed(2);*/
+            document.getElementById("totalPro").value = totalProgramado;
+        }
+
+        function sumaAvance() {
+
+            var totalAvance = parseInt(@Model.enero_ava) + parseInt(@Model.febrero_ava) + parseInt(@Model.marzo_ava) + parseInt(@Model.abril_ava) + parseInt(@Model.mayo_ava) + parseInt(@Model.junio_ava) + parseInt(@Model.julio_ava) + parseInt(@Model.agosto_ava) + parseInt(@Model.septiembre_ava) + parseInt(@Model.octubre_ava) + parseInt(@Model.noviembre_ava) + parseInt(@Model.diciembre_ava);
+
+            /*document.getElementById("totalPro").value = totalProgramado.toFixed(2);*/
+            document.getElementById("totalAva").value = totalAvance;
+        }
+
+        function porcentaje() {
+
+            //var elPor = parseFloat(sumaAvance() / sumaProgramado()) * 100;
+            var elPor = parseFloat((parseInt(@Model.enero_ava) + parseInt(@Model.febrero_ava) + parseInt(@Model.marzo_ava) + parseInt(@Model.abril_ava) + parseInt(@Model.mayo_ava) + parseInt(@Model.junio_ava) + parseInt(@Model.julio_ava) + parseInt(@Model.agosto_ava) + parseInt(@Model.septiembre_ava) + parseInt(@Model.octubre_ava) + parseInt(@Model.noviembre_ava) + parseInt(@Model.diciembre_ava)) / (parseInt(@Model.enero_mod) + parseInt(@Model.febrero_mod) + parseInt(@Model.marzo_mod) + parseInt(@Model.abril_mod) + parseInt(@Model.mayo_mod) + parseInt(@Model.junio_mod) + parseInt(@Model.julio_mod) + parseInt(@Model.agosto_mod) + parseInt(@Model.septiembre_mod) + parseInt(@Model.octubre_mod) + parseInt(@Model.noviembre_mod) + parseInt(@Model.diciembre_mod))) * 100;
+
+            document.getElementById("totalPor").value = elPor.toFixed(2);
+        }
+
+        function totalHombre() {
+
+            var totalH = parseInt(@Model.hene) + parseInt(@Model.hfeb) + parseInt(@Model.hmar) + parseInt(@Model.habr) + parseInt(@Model.hmay) + parseInt(@Model.hjun) + parseInt(@Model.hjul) + parseInt(@Model.hago) + parseInt(@Model.hsep) + parseInt(@Model.hoct) + parseInt(@Model.hnov) + parseInt(@Model.hdic);
+
+            document.getElementById("totalHom").value = totalH;
+        }
+
+        function totalMujer() {
+
+            var totalM = parseInt(@Model.mene) + parseInt(@Model.mfeb) + parseInt(@Model.mmar) + parseInt(@Model.mabr) + parseInt(@Model.mmay) + parseInt(@Model.mjun) + parseInt(@Model.mjul) + parseInt(@Model.mago) + parseInt(@Model.msep) + parseInt(@Model.moct) + parseInt(@Model.mnov) + parseInt(@Model.mdic);
+
+            document.getElementById("totalMuj").value = totalM;
+        }
+
+    </script>
+
+}

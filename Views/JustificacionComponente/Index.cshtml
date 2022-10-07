@@ -1,0 +1,148 @@
+﻿@model IEnumerable<PoaPlan.Models.Consultas.JustificacionComponenteLista>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>Justificación de Componentes</h5>
+            </div>
+            <div class="ibox-content">
+                <form method="get" class="form-horizontal" asp-controller="JustificacionComponente" asp-action="Index">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Año y Organo</label>
+
+                        <div class="col-sm-10">
+                            @Html.DropDownList("elOrgano", new SelectList(ViewBag.ComboAnioArea, "idarea", "organo"), "Elija una opción", new { @class = "form-control" })
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label class="col-sm-2 control-label">Componente</label>
+                        <div class="col-sm-10">
+
+                            @Html.DropDownList("elComponente", new SelectList(string.Empty, "idComponente", "componente"), "Elija un componente", new { @class = "form-control", @id = "elComponente", name = "elComponente" })
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-1">
+                            <button class="btn btn-block btn-outline btn-success btn-xs" type="submit">Buscar</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (Model != null)
+{
+
+    <div class="form-group">
+        <form asp-controller="JustificacionComponente" asp-action="NuevaJustificacion" method="get">
+            <input type="hidden" id="elIdComp" name="elIdComp" value="@ViewBag.idC" />
+            <button type="submit" class="btn btn-primary">Registro de Justificacion de Componentes Mensual</button>
+        </form>
+    </div>
+
+
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover dataTables-example">
+            <thead>
+                <tr>
+                    <th>IDJ</th>
+                    <th>Mes</th>
+                    <th>Analisis</th>
+                    <th>Justificacion</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.idJustificacion</td>
+                        <td>@item.mes</td>
+                        <td>@item.analisis</td>
+                        <td>@item.justificacion</td>
+                        <td>
+                            <p>@Html.ActionLink("Editar", "EditarJustificacion", new { IdJustificacion = item.idJustificacion }, htmlAttributes: new { @class = "btn btn-block btn-outline btn-info btn-xs" })</p>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+}
+
+@section scripts
+{
+    <script language="javascript">
+
+    $(document).ready(function () {
+
+        $('.dataTables-example').DataTable({
+            pageLength: 25,
+            responsive: true,
+
+            "order": [[0, "desc"]],
+
+            dom: '<"html5buttons"B>lTfgitp',
+            buttons: [
+                { extend: 'copy' },
+                { extend: 'csv' },
+                { extend: 'excel', title: 'ExampleFile' },
+                { extend: 'pdf', title: 'ExampleFile' },
+
+                {
+                    extend: 'print',
+                    customize: function (win) {
+                        $(win.document.body).addClass('white-bg');
+                        $(win.document.body).css('font-size', '10px');
+
+                        $(win.document.body).find('table')
+                            .addClass('compact')
+                            .css('font-size', 'inherit');
+                    }
+                }
+            ]
+        });
+
+        $("#elOrgano").change(function () {
+
+            //alert($("#elOrgano").val());
+
+            $("#elComponente").empty();
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetComponentes", "Actividades")',
+                dataType: 'json',
+                data: { elIdArea: $("#elOrgano").val() },
+                success: function (states) {
+                    $.each(states, function (i, state) {
+                        $("#elComponente").append('<option value="' + state.idComponente + '">' + state.componente + '</option>');
+                    });
+                },
+                error: function (ex) {
+                    alert("Error obteniendo los componentes." + ex);
+                }
+            });
+            return false;
+
+        });
+
+    });
+
+    </script>
+}

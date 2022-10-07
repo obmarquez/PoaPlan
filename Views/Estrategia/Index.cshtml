@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Estrategia>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@using (Html.BeginForm("NuevaEstrategia", "Estrategia", FormMethod.Get))
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Indicadores Estratégicos
+        </div>
+        <div class="panel-body">
+
+            <div class="row form-group">
+                <div class="col-md-3">
+                    <button type="submit" class="btn btn-block btn-outline btn-success btn-xs">Nuevo Indicador Estratégico</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover dataTables-example">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Año</th>
+                <th>Indicador Estratégico</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.id</td>
+                    <td>@item.anio</td>
+                    <td>@item.indicadorEstrategico</td>
+
+                    <td>
+                        @*<p>@Html.ActionLink("EditarClave", "ClavesPre", new { opcion = 2, idhistorico = item.idarea }, htmlAttributes: new { @class = "btn btn-block btn-outline btn-danger btn-xs" })</p>*@
+                        <p>@Html.ActionLink("Editar", "EditarEstrategia", new { idIndEst = item.id }, htmlAttributes: new { @class = "btn btn-block btn-outline btn-info btn-xs" })</p>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $('.dataTables-example').DataTable({
+                pageLength: 25,
+                responsive: true,
+
+                "order": [[0, "desc"]],
+
+                dom: '<"html5buttons"B>lTfgitp',
+                buttons: [
+                    { extend: 'copy' },
+                    { extend: 'csv' },
+                    { extend: 'excel', title: 'ExampleFile' },
+                    { extend: 'pdf', title: 'ExampleFile' },
+
+                    {
+                        extend: 'print',
+                        customize: function (win) {
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
+
+                            $(win.document.body).find('table')
+                                .addClass('compact')
+                                .css('font-size', 'inherit');
+                        }
+                    }
+                ]
+            });
+        });
+
+    </script>
+}

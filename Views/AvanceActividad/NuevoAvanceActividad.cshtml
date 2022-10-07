@@ -1,0 +1,190 @@
+﻿@model AvanceActividad
+@{
+    ViewData["Title"] = "NuevoAvanceActividad";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+            <form asp-controller="AvanceActividad" asp-action="NuevoAvanceActividad" class="form-horizontal" role="form">
+                <div class="ibox-title">
+                    <h5>Registro de Avance de Actividades Mensuales </h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-sm-6 b-r">
+                            <h3 class="m-t-none m-b">Programado</h3>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Enero</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.enero_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad" })
+                                    <span asp-validation-for="enero_mod" class="badge badge-danger"></span>
+                                </div>
+
+                                <label class="col-sm-2 control-label">Febrero</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.febrero_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad" })
+                                    <span asp-validation-for="febrero_mod" class="badge badge-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Marzo</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.marzo_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad" })
+                                    <span asp-validation-for="marzo_mod" class="badge badge-danger"></span>
+                                </div>
+                                <label class="col-sm-2 control-label">Abril</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.abril_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad" })
+                                    <span asp-validation-for="abril_mod" class="badge badge-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Mayo</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.mayo_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad" })
+                                    <span asp-validation-for="mayo_mod" class="badge badge-danger"></span>
+                                </div>
+                                <label class="col-sm-2 control-label">Junio</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.junio_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad" })
+                                    <span asp-validation-for="junio_mod" class="badge badge-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Julio</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.julio_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad" })
+                                    <span asp-validation-for="julio_mod" class="badge badge-danger"></span>
+                                </div>
+                                <label class="col-sm-2 control-label">Agosto</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.agosto_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad" })
+                                    <span asp-validation-for="agosto_mod" class="badge badge-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Septiembre</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.septiembre_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad" })
+                                    <span asp-validation-for="septiembre_mod" class="badge badge-danger"></span>
+                                </div>
+                                <label class="col-sm-2 control-label">Octubre</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.octubre_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad" })
+                                    <span asp-validation-for="octubre_mod" class="badge badge-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Noviembre</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.noviembre_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad" })
+                                    <span asp-validation-for="noviembre_mod" class="badge badge-danger"></span>
+                                </div>
+                                <label class="col-sm-2 control-label">Diciembre</label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor(model => model.diciembre_mod, new { @class = "form-control", @type = "number", @placeholder = "Cantidad" })
+                                    <span asp-validation-for="diciembre_mod" class="badge badge-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <h3 class="m-t-none m-b">Avance</h3>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Enero</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="enero_ava" name="enero_ava" value="0">
+                                </div>
+
+                                <label class="col-sm-2 control-label">Febrero</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="febrero_ava" name="febrero_ava" value="0">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Marzo</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="marzo_ava" name="marzo_ava" value="0">
+                                </div>
+                                <label class="col-sm-2 control-label">Abril</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="abril_ava" name="abril_ava" value="0">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Mayo</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="mayo_ava" name="mayo_ava" value="0">
+                                </div>
+                                <label class="col-sm-2 control-label">Junio</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="junio_ava" name="junio_ava" value="0">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Julio</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="julio_ava" name="julio_ava" value="0">
+                                </div>
+                                <label class="col-sm-2 control-label">Agosto</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="agosto_ava" name="agosto_ava" value="0">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Septiembre</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="septiembre_ava" name="septiembre_ava" value="0">
+                                </div>
+                                <label class="col-sm-2 control-label">Octubre</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="octubre_ava" name="octubre_ava" value="0">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Noviembre</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="noviembre_ava" name="noviembre_ava" value="0">
+                                </div>
+                                <label class="col-sm-2 control-label">Diciembre</label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="diciembre_ava" name="diciembre_ava" value="0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox-footer">
+                    <input hidden id="idIndicador" name="idIndicador" value="@ViewBag.elIdIndica" />
+                    <button class="btn btn-outline btn-success dim" type="submit"><i class="fa fa-floppy-o"></i></button>
+                    <button class="btn btn-outline btn-danger dim" type="button" onclick="salir();"><i class="fa fa-sign-out"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+
+    <script language="javascript">
+
+        function salir() {
+            location.href = '@Url.Action("Index", "AvanceActividad")';
+        }
+
+    </script>
+
+}

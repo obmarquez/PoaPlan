@@ -1,0 +1,66 @@
+﻿@using PoaPlan.Helper
+@{
+    ViewData["Title"] = "AdjuntarPdf";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="ibox float-e-margins">
+            <form asp-controller="JustificacionActividadEnlace" asp-action="AdjuntarPdf" method="post" role="form" class="form-horizontal" enctype="multipart/form-data" accept-charset="utf-8">
+                <div class="ibox-title">
+                    <h5>Adjuntar anexo de la Justificación en formato PDF</h5>
+                </div>
+                <div class="ibox-content">
+
+                    @*<div class="form-group">
+                            <label class="col-sm-2 control-label">Documento</label>
+                            <div class="custom-file col-sm-10">
+                                <input type="file" class="custom-file-input " id="input_doc_fiscal" name="fiscal_file" accept="application/pdf">
+                                <label class="custom-file-label" for="customFile">Seleccionar archivo</label>
+                            </div>
+                        </div>*@
+
+                    <div class="form-group mb-0">
+                        <label class="form-label">Documento</label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="archivo" name="archivo_pdf" accept="application/pdf" required>
+                            <label class="custom-file-label" for="customFile">Seleccionar archivo</label>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="ibox-footer">
+                    <input type="hidden" id="elMes" name="elMes" value="@ViewBag.mesPdf" />
+                    <button class="btn btn-outline btn-success dim" type="submit"><i class="fa fa-floppy-o"></i></button>
+                    @if (@SessionHelper.GetNameRol(User) == "Enlace")
+                    {
+                        <button class="btn btn-outline btn-danger dim" type="button" onclick="salir(1);"><i class="fa fa-sign-out"></i></button>
+                    }
+                    else
+                    {
+                        <button class="btn btn-outline btn-danger dim" type="button" onclick="salir(2);"><i class="fa fa-sign-out"></i></button>
+                    }
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+
+    <script language="javascript">
+
+            function salir(opcion) {
+                if (opcion == 1) {
+
+                    location.href = '@Url.Action("Index", "JustificacionActividadEnlace")';
+                }
+                else {
+                    location.href = '@Url.Action("Index", "JustificacionActividad")';
+                }
+            }
+
+    </script>
+
+}

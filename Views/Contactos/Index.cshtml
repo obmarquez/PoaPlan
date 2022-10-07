@@ -1,0 +1,68 @@
+﻿@using PoaPlan.Helper
+@model IEnumerable<Enlaces>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+        <h2>Enlaces</h2>
+        <ol class="breadcrumb">
+            <li>
+                Inicio
+            </li>
+            <li>
+                Catalogos
+            </li>
+            <li class="active">
+                <strong>Enlaces</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4">
+                    <div class="contact-box">
+
+                        <div class="col-sm-4">
+                            <div class="text-center">
+
+                                @{
+                                    //para verlo en mi proyecto
+                                    //var rutaFoto = "/img/" + @item.id + ".jpg";
+
+                                    //para verlo en servidor
+                                    var rutaFoto = "/fotoPlan/" + @item.id + ".jpg";
+                                }
+
+                                <img alt="image" class="img-circle m-t-xs img-responsive" src="@rutaFoto">
+                                <div class="m-t-xs font-bold">
+                                    @item.id<br>
+                                    @item.usuario
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <h3><strong>@item.nombre</strong></h3>
+                            <p><i class="fa fa-map-marker"></i> C3 - Chiapas</p>
+                            <address>
+                                <strong>@item.roldescripcion</strong><br>
+                                @item.organo.Substring(0,22)
+                            </address>
+                        </div>
+                        <div class="clearfix"></div>
+
+                    </div>
+                </div>
+            }
+        </div>
+
+
+    </div>
+</div>

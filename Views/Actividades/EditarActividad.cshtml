@@ -1,0 +1,81 @@
+﻿@model Indicador
+
+@{
+    ViewData["Title"] = "Editar Actividad";
+}
+
+<div class="row">
+
+    <div class="col-lg-12">
+
+        <div class="ibox float-e-margins">
+
+            <form asp-controller="Actividades" asp-action="EditarActividad" method="post" role="form" class="form-horizontal">
+
+                <div class="ibox-title">
+
+                    <h5>Editar la Actividad</h5>
+
+                </div>
+
+                <div class="ibox-content">
+
+                    <div class="form-group">
+
+                        <label class="col-sm-2 control-label">Objetivo</label>
+
+                        <div class="col-sm-10">
+
+                            @Html.TextAreaFor(model => model.objetivo, new { @class = "form-control", @rows = 3 })
+                            <span asp-validation-for="objetivo" class="badge badge-danger"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group">
+
+                        <label class="col-sm-2 control-label">Indicador</label>
+
+                        <div class="col-sm-10">
+
+                            @Html.TextAreaFor(model => model.indicador, new { @class = "form-control", @rows = 3 })
+                            <span asp-validation-for="indicador" class="badge badge-danger"></span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="ibox-footer">
+
+                    @Html.HiddenFor(model => model.idIndicador)
+
+                    <button class="btn btn-outline btn-success dim" type="submit"><i class="fa fa-floppy-o"></i></button>
+
+                    <button class="btn btn-outline btn-danger dim" type="button" onclick="salir();"><i class="fa fa-sign-out"></i></button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section scripts
+{
+
+    <script language="javascript">
+
+        function salir() {
+            location.href = '@Url.Action("Index", "Actividades")';
+        }
+
+    </script>
+
+}

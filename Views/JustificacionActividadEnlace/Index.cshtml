@@ -1,0 +1,156 @@
+﻿@using PoaPlan.Helper
+@model IEnumerable<PoaPlan.Models.Consultas.JustificacionActividadLista>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>Registro de Justificacion de Actividades por Enlace - Organo: @ViewBag.elOrgano.organo </h5>
+            </div>
+            <div class="ibox-content">
+                <form method="get" class="form-horizontal" asp-controller="JustificacionActividadEnlace" asp-action="Index">
+                    <div class="form-group">
+
+                        <label class="col-sm-2 control-label">Componente</label>
+                        <div class="col-sm-10">
+
+                            @Html.DropDownList("elComponente", new SelectList(ViewBag.losComponentes, "idComponente", "componente"), "Elija un componente", new { @class = "form-control" })
+
+                        </div>
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Indicador</label>
+                        <div class="col-sm-10">
+
+                            @Html.DropDownList("elIndicador", new SelectList(string.Empty, "idIndicador", "indicador"), "Elija un indicador", new { @class = "form-control", @id = "elIndicador", name = "elIndicador" })
+
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            <button class="btn btn-block btn-outline btn-success btn-xs" type="submit">Buscar</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (Model != null)
+{
+
+    <div class="form-group">
+        <form asp-controller="JustificacionActividad" asp-action="NuevaJustificacionActividad" method="get">
+            <input type="hidden" id="elIdAvAc" name="elIdAvAc" value="@ViewBag.elIdIndica" />
+            <button type="submit" class="btn btn-primary">Registro de Justificación de Avance de Actividades</button>
+        </form>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover dataTables-example">
+            <thead>
+                <tr>
+                    <th>IDJ</th>
+                    <th>Mes</th>
+                    <th>Resumen Narrativo</th>
+                    <th>Justificación</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.idJustificacion</td>
+                        <td>@item.mes</td>
+                        <td>@item.analisis_act</td>
+                        <td>@item.justificacion_act</td>
+                        <td>
+                            <p>@Html.ActionLink("Editar", "EditarJustificacionActividad", new { idJustificacion = item.idJustificacion }, htmlAttributes: new { @class = "btn btn-block btn-outline btn-info btn-xs" })</p>
+                            @if (@SessionHelper.GetOrgano(User) == 83 || @SessionHelper.GetOrgano(User) == 77)
+                            {
+                                @*<p>@Html.ActionLink("Ad PDF", "AdjuntarPdf", new { mes = item.mes }, htmlAttributes: new { @class = "btn btn-block btn-outline btn-info btn-xs" })</p>*@
+                                <p>@Html.ActionLink("Ad PDF", "AdjuntarPdf", new { mes = item.mes }, htmlAttributes: new { @class = "btn btn-block btn-outline btn-info btn-xs" })</p>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+@section scripts
+{
+    <script language="javascript">
+
+        $(document).ready(function () {
+
+            $('.dataTables-example').DataTable({
+                pageLength: 25,
+                responsive: true,
+
+                "order": [[0, "desc"]],
+
+                dom: '<"html5buttons"B>lTfgitp',
+                buttons: [
+                    { extend: 'copy' },
+                    { extend: 'csv' },
+                    { extend: 'excel', title: 'ExampleFile' },
+                    { extend: 'pdf', title: 'ExampleFile' },
+
+                    {
+                        extend: 'print',
+                        customize: function (win) {
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
+
+                            $(win.document.body).find('table')
+                                .addClass('compact')
+                                .css('font-size', 'inherit');
+                        }
+                    }
+                ]
+            });
+
+            //----------------------------------------------Llenando combo de Indicadores
+            $("#elComponente").click(function () {
+
+                //alert($("#elOrgano").val());
+
+                //$("#elComponente").empty();
+                $("#elIndicador").empty();
+
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("GetIndicador", "AvanceActividad")',
+                    dataType: 'json',
+                    data: { elIdComp: $("#elComponente").val() },
+                    success: function (states) {
+                        $.each(states, function (i, state) {
+                            $("#elIndicador").append('<option value="' + state.idIndicador + '">' + state.indicador + '</option>');
+                        });
+                    },
+                    error: function (ex) {
+                        alert("Error obteniendo los indicadores." + ex);
+                    }
+                });
+                return false;
+
+            });
+
+        });
+
+    </script>
+}
