@@ -1,7 +1,9 @@
 /.config
+/.vs
 /bin
 /obj
 /wwwroot
 /Properties
 
 appsettings.Development.json
+appsettings.json
